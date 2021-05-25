@@ -1,5 +1,10 @@
 body {
   background-color: #212121;
+}
+
+p {
   color: #e0e0e0;
-  font-size: xx-large;
+  font-family: 'Courier New', monospace;
+  font-size: x-large;
+  font-weight: bold;
 }
