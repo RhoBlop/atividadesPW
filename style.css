@@ -1,7 +1,10 @@
 body {
-  background-image: url("background-image.png");
-  color: #e0e0e0;
+  background: url("background-image.png");
+  background-size: 1500px;
   font-family: "Courier New", monospace; 
+  font-size: 18px;
+  color: #e0e0e0;
+  text-align: justify;
 }
 
 div.page-content {
@@ -9,10 +12,9 @@ div.page-content {
   border: 4px solid rgb(150, 48, 22);
   border-radius: 15px;
   padding: 30px;
-  background-color: #212121;
   width: 800px;
-  font-size: 18px;
-  text-align: justify;
+  background-color: #212121;
+  
 }
 
 h1.title {
