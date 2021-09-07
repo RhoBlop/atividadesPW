@@ -19,13 +19,13 @@ function decreaseFontSize() {
     }
 }
 function criaBotoes() {
-    criaBotao('#increase', '#title', '+', 'buttons', increaseFontSize)
     criaBotao('#decrease', '#title', '-', 'buttons', decreaseFontSize)
+    criaBotao('#increase', '#title', '+', 'buttons', increaseFontSize)
 }
 function criaBotao(buttonId, appendElementId, innerText, addClass, clickEvent) {
     const appendElement = document.querySelector(appendElementId)
     const button = document.createElement('button')
-    appendElement.append(button)
+    appendElement.prepend(button)
     button.id = buttonId
     button.innerText = innerText
     button.classList.add(addClass)
