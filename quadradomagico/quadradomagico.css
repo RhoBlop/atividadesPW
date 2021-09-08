@@ -32,7 +32,7 @@ input {
     color: rgb(111, 188, 190);
     border: 2px solid rgb(150, 48, 22);
     border-radius:5px;
-    font-size: 15px;
+    font-size: larger;
 }
 .botaoReiniciar:hover {
     background-color: rgba(30, 71, 87, 0.363);
