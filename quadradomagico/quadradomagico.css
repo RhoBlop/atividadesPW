@@ -43,7 +43,7 @@ input {
 .somaerradalinha, 
 .somaerradadiagonalsecundaria,
 .somaerradadiagonalprincipal {
-    border: 3px solid rgb(255, 166, 0, .6);
+    border: 5px solid rgb(255, 166, 0, .6);
 }
 .somaerradacoluna input,
 .somaerradalinha input, 
@@ -56,7 +56,7 @@ input {
 
 .foradoslimites,
 .numerosrepetidos {
-    border: 3px solid rgb(255, 0, 0, .6); 
+    border: 5px solid rgb(255, 0, 0, .6); 
 }
 .foradoslimites input,
 .numerosrepetidos input {
@@ -66,7 +66,7 @@ input {
 
 
 .vitoria td {
-    border: 3px solid rgb(0, 128, 0, .6);
+    border: 5px solid rgb(0, 128, 0, .6);
 }
 .vitoria input {
     color: green;
