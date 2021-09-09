@@ -58,6 +58,7 @@ function insereInput(celula) {
         const valor = parseInt(input.value);
         const [linha, coluna] = getLinhaColuna(celula);
         matriz[linha][coluna] = valor;
+        console.log(matriz);
         const quadradoCompleto = verificaMatriz();
         if (quadradoCompleto) {
             document.querySelector('#quadradomagico').classList.add('vitoria');
@@ -125,16 +126,14 @@ function verificaSomaLinhas() {
 
 function celulaVazia(celula) {
     const [i,j] = celula;
-    return matriz[i][j] == null;
-}
-
-function somaValores(total, celula) {
-    const [i,j] = celula;
-    return total + matriz[i][j];
+    return matriz[i][j] == null || isNaN(matriz[i][j]);
 }
 
 function verificaSomaCelulas(celulas, classe) {
-    if (celulas.some(celulaVazia)) return false;
+    if (celulas.some(celulaVazia)) {
+        acaoClasseCelulas(removeClasseCelula, classe, celulas);
+        return false;
+    }
     const soma = celulas.reduce(somaValores, 0);
     if (soma != somaNumeros) {
         acaoClasseCelulas(atribuiClasseCelula, classe, celulas);
@@ -144,6 +143,11 @@ function verificaSomaCelulas(celulas, classe) {
     }
     return true;
 }
+function somaValores(total, celula) {
+    const [i,j] = celula;
+    return total + matriz[i][j];
+}
+
 
 function acaoClasseCelulas(acao, classe, celulas) {
     celulas.map(celula => {
