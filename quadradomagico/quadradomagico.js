@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ordemQuadrado();
 });
 
+// insere um input que muda a ordem do quadrado
 function ordemQuadrado() {
     const div = document.querySelector('.page-content');
     const texto = document.createElement('p');
@@ -16,11 +17,6 @@ function ordemQuadrado() {
     input.classList.add('botaoReiniciar');
     input.addEventListener('change', () => {
         ordem = parseInt(input.value);
-        matriz = Array(ordem);
-        for (let i=0; i<matriz.length; i++) {
-            matriz[i] = Array(ordem);
-        };
-        somaNumeros = ((1+(ordem**2))*ordem) / 2;
         texto.remove();
         input.remove();
         insereTabela();
@@ -28,6 +24,13 @@ function ordemQuadrado() {
 }
 
 function insereTabela() {
+    // atualiza a matriz do quadrado
+    matriz = Array(ordem);
+    for (let i=0; i<matriz.length; i++) {
+        matriz[i] = Array(ordem);
+    };
+    somaNumeros = ((1+(ordem**2))*ordem) / 2;
+
     const tabela = document.createElement('table');
     tabela.id = 'quadradomagico';
     document.querySelector('div').append(tabela);
@@ -38,7 +41,6 @@ function insereTabela() {
             const celula = document.createElement('td');
             linha.append(celula);
             celula.id = `lin${i}col${j}`;
-            console.log(ordem)
             insereInput(celula);
         }
     }
@@ -62,20 +64,31 @@ function insereInput(celula) {
             document.querySelectorAll('input').forEach(input => {
                 input.readOnly = true;
             });
+            mensagemVitoria();
             criaBotaoReiniciar();
-            alert('Congrats');
         }
     });
+}
+
+function mensagemVitoria() {
+    const text = document.createElement('p');
+    const div = document.querySelector('.page-content');
+    div.append(text);
+    text.id = 'victoryMsg';
+    text.innerText = 'Você acaba de ganhar um Iphone da mais nova geração!!! clique no botão abaixo para resgatá-lo :D';
 }
 
 function criaBotaoReiniciar() {
     const botao = document.createElement('button');
     const div = document.querySelector('.page-content');
     div.append(botao);
-    botao.innerText = 'Refresh';
+    botao.innerText = 'Restart';
     botao.classList.add('botaoReiniciar');
     botao.addEventListener('click', () => {
-        location.reload()
+        botao.remove();
+        document.querySelector('#victoryMsg').remove()
+        document.querySelector('#quadradomagico').remove()
+        ordemQuadrado();
     });
 }
 
@@ -174,7 +187,6 @@ function verificaSomaDiagonalPrincipal() {
 function verificaNumerosForaDosLimites() {
     const minimo = 1;
     const maximo = ordem**2;
-    console.log(maximo);
     let numerosForaDosLimites = false;
     for (let i=0; i<ordem; i++) {
         for (let j=0; j<ordem; j++) {
